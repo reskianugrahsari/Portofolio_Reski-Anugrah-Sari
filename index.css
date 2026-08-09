@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --primary: 0 84% 60%;
-    /* Red */
-    --secondary: 345 83% 41%;
-    /* Crimson/Rose */
-    --darker: 0 10% 4%;
-    /* Near Black with slight red tint */
-    --card: 0 8% 8%;
+    --primary: 267 84% 68%;
+    /* Purple */
+    --secondary: 258 83% 62%;
+    /* Violet */
+    --darker: 250 48% 8%;
+    /* Deep purple */
+    --card: 254 28% 12%;
   }
 
   html {
@@ -18,7 +18,7 @@
   }
 
   body {
-    @apply bg-[#0a0101] text-slate-200 antialiased selection:bg-red-500/30;
+    @apply bg-[#120a24] text-slate-200 antialiased selection:bg-[#a87cff]/30;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }
@@ -50,7 +50,7 @@
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(to right, #ef4444, #be123c, #991b1b);
+  background: linear-gradient(to right, #e9dcff, #a87cff, #6f42c1);
   z-index: 100;
   transition: width 0.1s ease;
 }
@@ -61,16 +61,28 @@
   }
 
   .glass-card {
-    @apply glass rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:translate-y-[-4px];
-  }
+      @apply glass rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:translate-y-[-4px];
+    }
+
+    .glass-soft {
+      @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-xl rounded-2xl;
+    }
+
+    .section-label {
+      @apply inline-flex items-center gap-2 px-4 py-2 rounded-full glass-soft text-[11px] uppercase tracking-[0.35em] text-slate-300;
+    }
+
+    .stat-card {
+      @apply glass-soft p-5 border border-white/10;
+    }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-rose-500 to-red-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#e9dcff] via-[#a87cff] to-[#6f42c1];
   }
 
   .btn-premium {
-    @apply relative px-8 py-4 bg-primary text-white font-bold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(239, 68, 68, 0.5)] active:scale-95;
-    background: linear-gradient(135deg, #ef4444 0%, #be123c 100%);
+    @apply relative px-8 py-4 bg-primary text-white font-bold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,124,255,0.5)] active:scale-95;
+    background: linear-gradient(135deg, #a87cff 0%, #6f42c1 100%);
   }
 
   .btn-premium::before {
@@ -100,10 +112,10 @@
 }
 
 .mesh-gradient {
-  background: radial-gradient(at 0% 0%, rgba(239, 68, 68, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(190, 18, 60, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(153, 27, 27, 0.15) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(244, 63, 94, 0.15) 0px, transparent 50%);
+  background: radial-gradient(at 0% 0%, rgba(168,124,255,0.16) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(111,66,193,0.16) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(139,92,246,0.16) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(233,220,255,0.12) 0px, transparent 50%);
   background-size: 200% 200%;
   animation: mesh-bg 15s ease infinite;
 }
@@ -123,6 +135,7 @@
     transform: translateY(-7px) rotate(-2deg);
   }
 }
+
 
 @keyframes rotating-border {
   0% {
@@ -241,17 +254,17 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0101;
+  background: #120a24;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#1e293b, #334155);
+  background: linear-gradient(#a87cff, #6f42c1);
   border-radius: 5px;
-  border: 2px solid #0a0101;
+  border: 2px solid #120a24;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #8b5cf6;
 }
 
 /* Grain Texture Overlay */
@@ -294,7 +307,7 @@
   left: 0;
   width: 100%;
   height: 200px;
-  background: linear-gradient(to bottom, transparent, rgba(239, 68, 68, 0.1), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(168,124,255,0.12), transparent);
   pointer-events: none;
   animation: beam-scan 8s linear infinite;
   z-index: 1;
@@ -403,4 +416,102 @@
 
 .animate-page-load {
   animation: page-load 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hero Photo Styles */
+.hero-photo-wrapper {
+  position: relative;
+  width: 340px;
+  height: 340px;
+}
+
+@media (min-width: 768px) {
+  .hero-photo-wrapper {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+.hero-photo-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  border: 4px solid rgba(239, 68, 68, 0.3);
+  box-shadow:
+    0 0 40px rgba(239, 68, 68, 0.15),
+    0 0 80px rgba(239, 68, 68, 0.08),
+    inset 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.hero-photo-border {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #ef4444;
+  border-right-color: rgba(239, 68, 68, 0.4);
+  animation: rotating-border 8s linear infinite;
+  z-index: 1;
+}
+
+.hero-photo-border::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(190, 18, 60, 0.5);
+  border-left-color: rgba(190, 18, 60, 0.2);
+  animation: rotating-border 12s linear reverse infinite;
+}
+
+/* Hero Social Icons */
+.hero-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.hero-social-icon:hover {
+  color: #fff;
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+}
+
+/* Hero Stat Card */
+.hero-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.hero-stat-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(239, 68, 68, 0.2);
+  transform: translateY(-2px);
 }

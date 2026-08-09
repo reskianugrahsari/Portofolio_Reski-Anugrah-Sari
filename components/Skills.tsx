@@ -1,83 +1,55 @@
 import React from 'react';
-import { Skill } from '../types';
-import { Cpu, Globe, Database, Layout, PenTool, Server, BookOpen } from 'lucide-react';
+import { BookOpen, Code2, Figma, Framer, Globe, Layers3, MonitorSmartphone, Network, Paintbrush, ServerCog } from 'lucide-react';
 
-const skillsData: Skill[] = [
-  { name: 'React.js', level: 95, category: 'Frontend' },
-  { name: 'TypeScript', level: 90, category: 'Frontend' },
-  { name: 'Tailwind CSS', level: 95, category: 'Frontend' },
-  { name: 'Next.js', level: 85, category: 'Frontend' },
-  { name: 'Node.js', level: 80, category: 'Backend' },
-  { name: 'Python', level: 85, category: 'Backend' },
-  { name: 'PostgreSQL', level: 75, category: 'Backend' },
-  { name: 'Docker', level: 70, category: 'DevOps' },
-  { name: 'Git/GitHub', level: 90, category: 'DevOps' },
-  { name: 'Figma', level: 60, category: 'Tools' },
-  { name: 'Machine Learning', level: 65, category: 'AI/Data' },
-  { name: 'TensorFlow', level: 60, category: 'AI/Data' },
+const skills = [
+  { name: 'Frontend', icon: MonitorSmartphone },
+  { name: 'Web Design', icon: Globe },
+  { name: 'UI/UX Design', icon: Paintbrush },
+  { name: 'Figma', icon: Figma },
+  { name: 'React.js', icon: Code2 },
+  { name: 'TypeScript', icon: Code2 },
+  { name: 'Networking', icon: Network },
+  { name: 'Prompt engineer', icon: ServerCog },
 ];
-
-const categories = Array.from(new Set(skillsData.map(s => s.category))) as Skill['category'][];
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 relative bg-[#0a0101]">
-      {/* Decorative Glow */}
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-red-500/5 rounded-full blur-[120px]"></div>
+    <section id="skills" className="relative overflow-hidden py-24 bg-gradient-to-br from-[#f0e9ff] via-[#c8b4ff] to-[#4f2f86]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.52),transparent_28%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.14),transparent_24%),linear-gradient(90deg,rgba(255,255,255,0.16)_0%,rgba(255,255,255,0.03)_54%,rgba(18,8,45,0.22)_100%)]" />
+      <div className="absolute inset-y-0 left-1/2 w-px bg-white/25 blur-[1px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20 animate-reveal-up">
-          <div className="flex justify-center items-center gap-2 text-red-400 font-mono text-sm mb-4">
+        <div className="mb-12 animate-reveal-up">
+          <div className="flex items-center gap-2 text-[#5e46b3] font-mono text-sm mb-4 tracking-[0.35em] uppercase">
             <BookOpen className="w-4 h-4" />
-            <span>Knowledge Stack</span>
+            <span>My Skills</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Technical <span className="text-gradient">Versatility</span></h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            A balanced mix of architectural planning, creative problem solving, and modern development standards.
+          <h2 className="text-4xl md:text-5xl font-black text-[#4b2f84] mb-4 uppercase tracking-tight">
+            MY SKILLS
+          </h2>
+          <p className="max-w-2xl text-[#6b56a8] text-lg leading-relaxed">
+            Frontend, design, dan networking skill.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((category, catIdx) => (
-            <div
-              key={category}
-              className="glass-card p-8 group animate-reveal-up"
-              style={{ animationDelay: `${catIdx * 100}ms` }}
-            >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-red-400 group-hover:bg-red-500 group-hover:text-white transition-all duration-500 group-hover:rotate-6 shadow-xl">
-                  {category === 'Frontend' && <Layout className="w-6 h-6" />}
-                  {category === 'Backend' && <Server className="w-6 h-6" />}
-                  {category === 'DevOps' && <Cpu className="w-6 h-6" />}
-                  {category === 'Tools' && <PenTool className="w-6 h-6" />}
-                  {category === 'AI/Data' && <Database className="w-6 h-6" />}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
+          {skills.map((skill, idx) => {
+            const Icon = skill.icon;
+            return (
+              <div
+                key={skill.name}
+                className="group rounded-3xl border border-white/28 bg-white/16 backdrop-blur-md shadow-[0_16px_40px_rgba(73,44,133,0.16)] p-5 sm:p-6 min-h-[152px] flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 hover:bg-white/24 hover:shadow-[0_18px_45px_rgba(73,44,133,0.24)]"
+                style={{ animationDelay: `${idx * 70}ms` }}
+              >
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/32 bg-white/24 text-[#5e46b3] shadow-inner shadow-white/20 transition-transform duration-300 group-hover:scale-110">
+                  <Icon className="h-7 w-7" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-black text-white leading-tight">{category}</h3>
-                  <span className="text-[10px] font-mono text-slate-500 tracking-[0.2em] uppercase">Specialization</span>
-                </div>
+                <span className="text-sm sm:text-base font-semibold text-[#4d3a7d] leading-tight">
+                  {skill.name}
+                </span>
               </div>
-
-              <div className="space-y-6">
-                {skillsData.filter(s => s.category === category).map((skill) => (
-                  <div key={skill.name} className="relative group/skill">
-                    <div className="flex justify-between items-end mb-2">
-                      <span className="text-sm font-bold text-slate-300 group-hover/skill:text-white transition-colors">{skill.name}</span>
-                      <span className="text-[10px] font-mono text-slate-500">{skill.level}%</span>
-                    </div>
-                    <div className="w-full h-[6px] bg-white/5 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-red-500 to-rose-600 rounded-full relative"
-                        style={{ width: `${skill.level}%` }}
-                      >
-                        <div className="absolute inset-0 bg-white/20 animate-[mesh-bg_2s_linear_infinite]"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

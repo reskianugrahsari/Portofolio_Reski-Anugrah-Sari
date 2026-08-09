@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
+import Pengalaman from './components/Pengalaman';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Training from './components/Training';
@@ -66,6 +67,9 @@ const App: React.FC = () => {
         </section>
         <section id="skills-section" className="reveal">
           <Skills />
+        </section>
+        <section id="experience-section" className="reveal">
+          <Pengalaman />
         </section>
         <section id="projects-section" className="reveal">
           <Projects />
