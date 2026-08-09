@@ -1,6 +1,7 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
 let chatSession: Chat | null = null;
+let ai: GoogleGenAI | null = null;
 
 // Get API key from environment
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -8,13 +9,30 @@ const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 // Log API key status (without revealing the actual key)
 console.log('API Key status:', apiKey ? `Present (${apiKey.substring(0, 10)}...)` : 'Missing');
 
-// Initialize the Gemini Client
-const ai = new GoogleGenAI({ apiKey });
+const getAiClient = () => {
+  if (!apiKey) return null;
+  if (!ai) {
+    ai = new GoogleGenAI({ apiKey });
+  }
+  return ai;
+};
 
 export const initializeChat = async (): Promise<void> => {
   try {
+    if (!apiKey) {
+      console.warn('Gemini disabled: missing VITE_GEMINI_API_KEY');
+      chatSession = null;
+      return;
+    }
+
     console.log('Initializing chat session...');
-    chatSession = ai.chats.create({
+    const client = getAiClient();
+    if (!client) {
+      chatSession = null;
+      return;
+    }
+
+    chatSession = client.chats.create({
       model: 'gemini-3-flash-preview',
       config: {
         systemInstruction: `You are the Official AI Portfolio Assistant for RESKI ANUGRAH SARI.
@@ -51,7 +69,7 @@ export const initializeChat = async (): Promise<void> => {
     console.log('Chat session initialized successfully');
   } catch (error) {
     console.error("Failed to initialize chat session:", error);
-    throw error;
+    chatSession = null;
   }
 };
 
