@@ -53,7 +53,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#0a0101] text-slate-200 selection:bg-red-500/30 animate-page-load">
+    <div className="relative min-h-screen bg-[#120a24] text-slate-200 selection:bg-[#a87cff]/30 animate-page-load">
       {/* Scroll Progress Bar */}
       <div className="scroll-progress" id="myBar"></div>
       {/* Universal Visual Enhancements */}

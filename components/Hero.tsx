@@ -13,7 +13,7 @@ const stats = [
 
 const Hero: React.FC = () => {
   return (
-    <section id="about" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-8 bg-gradient-to-br from-[#f3ecff] via-[#c8b4ff] to-[#4a2f82]">
+    <section id="about" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-8 bg-gradient-to-br from-[#160d2b] via-[#2b174d] to-[#5d3aa6]">
       <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-white/18 rounded-full blur-[110px] animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#8f6cff]/20 rounded-full blur-[110px] animate-pulse animation-delay-1000" />
 
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
             <div className="absolute -bottom-4 -right-4 w-20 h-20 opacity-20">
               <div className="grid grid-cols-4 gap-1.5">
                 {Array.from({ length: 16 }).map((_, i) => (
-                  <div key={i} className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                  <div key={i} className="w-1.5 h-1.5 bg-[#a87cff] rounded-full" />
                 ))}
               </div>
             </div>

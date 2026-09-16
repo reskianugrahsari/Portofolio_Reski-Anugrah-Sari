@@ -163,7 +163,7 @@ const Training: React.FC = () => {
                                     <BookMarked className="w-8 h-8 text-white" />
                                 </div>
                                 <div className="absolute -bottom-2 -right-2 bg-[#1d1234] rounded-full p-1 border border-white/10 text-[#e3d6ff]">
-                                    <CheckCircle className="w-4 h-4 fill-red-400/10" />
+                                    <CheckCircle className="w-4 h-4 fill-[#a87cff]/10" />
                                 </div>
                             </div>
 

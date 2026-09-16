@@ -236,7 +236,7 @@
   }
 
   50% {
-    border-color: #ef4444
+    border-color: #a87cff
   }
 }
 
@@ -244,7 +244,7 @@
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 3px solid #ef4444;
+  border-right: 3px solid #a87cff;
   animation: typing 2.5s steps(30, end), blink .75s step-end infinite;
 }
 
@@ -355,7 +355,7 @@
   content: '';
   position: absolute;
   inset: -1px;
-  background: linear-gradient(45deg, transparent, rgba(239, 68, 68, 0.3), transparent);
+  background: linear-gradient(45deg, transparent, rgba(168, 124, 255, 0.3), transparent);
   border-radius: inherit;
   z-index: -1;
   transition: opacity 0.3s;
@@ -439,10 +439,10 @@
   overflow: hidden;
   position: relative;
   z-index: 2;
-  border: 4px solid rgba(239, 68, 68, 0.3);
+  border: 4px solid rgba(168, 124, 255, 0.4);
   box-shadow:
-    0 0 40px rgba(239, 68, 68, 0.15),
-    0 0 80px rgba(239, 68, 68, 0.08),
+    0 0 40px rgba(168, 124, 255, 0.25),
+    0 0 80px rgba(168, 124, 255, 0.12),
     inset 0 0 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -454,8 +454,8 @@
   bottom: -12px;
   border-radius: 50%;
   border: 2px solid transparent;
-  border-top-color: #ef4444;
-  border-right-color: rgba(239, 68, 68, 0.4);
+  border-top-color: #a87cff;
+  border-right-color: rgba(168, 124, 255, 0.4);
   animation: rotating-border 8s linear infinite;
   z-index: 1;
 }
@@ -469,8 +469,8 @@
   bottom: -6px;
   border-radius: 50%;
   border: 1px solid transparent;
-  border-bottom-color: rgba(190, 18, 60, 0.5);
-  border-left-color: rgba(190, 18, 60, 0.2);
+  border-bottom-color: rgba(111, 66, 193, 0.5);
+  border-left-color: rgba(111, 66, 193, 0.2);
   animation: rotating-border 12s linear reverse infinite;
 }
 
@@ -491,10 +491,10 @@
 
 .hero-social-icon:hover {
   color: #fff;
-  background: rgba(239, 68, 68, 0.2);
-  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(168, 124, 255, 0.2);
+  border-color: rgba(168, 124, 255, 0.4);
   transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+  box-shadow: 0 4px 15px rgba(168, 124, 255, 0.2);
 }
 
 /* Hero Stat Card */
@@ -512,6 +512,6 @@
 
 .hero-stat-card:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(239, 68, 68, 0.2);
+  border-color: rgba(168, 124, 255, 0.3);
   transform: translateY(-2px);
 }

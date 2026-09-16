@@ -88,7 +88,7 @@ const ChatBot: React.FC = () => {
 
       {/* Chat Interface */}
       <div
-        className={`fixed z-50 bottom-6 right-6 w-[95vw] sm:w-[420px] bg-[#140b29] border-2 border-white/10 rounded-3xl shadow-2xl shadow-red-600/20 flex flex-col transition-all duration-500 transform origin-bottom-right ${isOpen ? 'scale-100 translate-y-0 opacity-100' : 'scale-90 translate-y-10 opacity-0 pointer-events-none'}`}
+        className={`fixed z-50 bottom-6 right-6 w-[95vw] sm:w-[420px] bg-[#140b29] border-2 border-white/10 rounded-3xl shadow-2xl shadow-[#a87cff]/20 flex flex-col transition-all duration-500 transform origin-bottom-right ${isOpen ? 'scale-100 translate-y-0 opacity-100' : 'scale-90 translate-y-10 opacity-0 pointer-events-none'}`}
         style={{ height: '650px', maxHeight: '90vh' }}
       >
         {/* Header */}
@@ -98,7 +98,7 @@ const ChatBot: React.FC = () => {
 
           <div className="flex items-center gap-4 relative z-10">
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-tr from-red-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-xl shadow-red-500/30">
+              <div className="w-12 h-12 bg-gradient-to-tr from-[#a87cff] to-[#6f42c1] rounded-2xl flex items-center justify-center shadow-xl shadow-[#a87cff]/30">
                 <Bot className="w-7 h-7 text-white" />
               </div>
               {/* Active indicator */}
@@ -124,7 +124,7 @@ const ChatBot: React.FC = () => {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-5 bg-[#120a24] scrollbar-thin scrollbar-thumb-red-600/40 scrollbar-track-transparent">
+        <div className="flex-1 overflow-y-auto p-6 space-y-5 bg-[#120a24] scrollbar-thin scrollbar-thumb-[#a87cff]/40 scrollbar-track-transparent">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -169,12 +169,12 @@ const ChatBot: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Ask about skills, projects, or certifications..."
-              className="flex-1 bg-[#1a1a1a] border border-[#a87cff]/30 text-white text-sm rounded-2xl px-5 py-3.5 focus:outline-none focus:border-[#a87cff] focus:ring-2 focus:ring-red-500/50 transition-all placeholder:text-slate-500"
+              className="flex-1 bg-[#1a1a1a] border border-[#a87cff]/30 text-white text-sm rounded-2xl px-5 py-3.5 focus:outline-none focus:border-[#a87cff] focus:ring-2 focus:ring-[#a87cff]/50 transition-all placeholder:text-slate-500"
             />
             <button
               onClick={handleSend}
               disabled={isLoading || !input.trim()}
-              className="bg-gradient-to-br from-[#a87cff] to-[#6f42c1] hover:from-[#b794ff] hover:to-[#7d52d1] disabled:opacity-40 disabled:scale-95 text-white p-3.5 rounded-2xl shadow-xl shadow-red-600/30 transition-all active:scale-90 disabled:cursor-not-allowed"
+              className="bg-gradient-to-br from-[#a87cff] to-[#6f42c1] hover:from-[#b794ff] hover:to-[#7d52d1] disabled:opacity-40 disabled:scale-95 text-white p-3.5 rounded-2xl shadow-xl shadow-[#a87cff]/30 transition-all active:scale-90 disabled:cursor-not-allowed"
             >
               <Send className="w-5 h-5" />
             </button>
